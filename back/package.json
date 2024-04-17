@@ -1,0 +1,21 @@
+{
+  "name": "gift-list",
+  "version": "1.0.0",
+  "description": "A gift list for any celebration",
+  "main": "script.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [
+    "gift",
+    "holiday",
+    "celebration"
+  ],
+  "author": "JavierKllao",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "fs": "^0.0.1-security"
+  }
+}
