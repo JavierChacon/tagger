@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Función para cambiar el estado de un item
   function changeStatus(itemId, newStatus) {
-    console.log("response");
     fetch(`/items/${itemId}`, {
       method: "PUT",
       headers: {
