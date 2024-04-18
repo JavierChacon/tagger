@@ -39,7 +39,6 @@ app.get("/item/:id", (req, res) => {
       return;
     }
     if (item.status) {
-      console.log(__dirname);
       res.sendFile(path.join(__dirname, "/static/available.html"));
     } else {
       res.sendFile(path.join(__dirname, "/static/not-available.html"));
@@ -73,7 +72,7 @@ app.put("/items/:id", (req, res) => {
         res.status(500).send("Error interno del servidor");
         return;
       }
-      res.sendFile(path.join(__dirname, "../front/not-available.html"));
+      res.sendFile(path.join(__dirname, "/static/not-available.html"));
       // res.json(item);
     });
   });
