@@ -1,11 +1,13 @@
 const express = require("express");
 const cors = require("cors");
 const fs = require("fs");
+const path = require("path");
 const app = express();
 const PORT = 3002;
 
 app.use(cors());
 app.use(express.json());
+app.use("/static", express.static(path.join(__dirname, "static")));
 
 // Ruta para obtener la lista de items
 app.get("/items", (req, res) => {
@@ -36,7 +38,12 @@ app.get("/item/:id", (req, res) => {
       res.status(404).send("Item no encontrado");
       return;
     }
-    res.json(item);
+    if (item.status) {
+      console.log(__dirname);
+      res.sendFile(path.join(__dirname, "/static/available.html"));
+    } else {
+      res.sendFile(path.join(__dirname, "/static/not-available.html"));
+    }
   });
 });
 
@@ -66,7 +73,8 @@ app.put("/items/:id", (req, res) => {
         res.status(500).send("Error interno del servidor");
         return;
       }
-      res.json(item);
+      res.sendFile(path.join(__dirname, "../front/not-available.html"));
+      // res.json(item);
     });
   });
 });
